@@ -1,0 +1,42 @@
+.register-employee-main {
+    height: 100svh;
+    width: 100svw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;    
+}
+.register-employee-body{
+    height: 90%;
+    width: 100%;
+}
+.register-employee-left-sidebar{
+    height: 100%;
+    width: 20%;
+    border-right: 2px solid #0076a6;
+    background-color: #333333;
+}
+
+.register-employee-right{
+    height: 100%;
+    width: 80%;
+}
+.register-employee-right-main-heading{
+    margin: 2%;
+}
+.reg-form{
+    width: 70%;
+}
+.employee-reg-credentials{
+    width: 100%;
+    margin: 1%;
+}
+.employee-reg-credentials-div{
+    width: 45%;
+
+}
+.credential-label{
+    width: 40%;
+    font-size: 1.2em;
+}
+.credential-input{
+    font-size: 1em;
+}

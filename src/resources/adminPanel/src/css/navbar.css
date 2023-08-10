@@ -1,0 +1,51 @@
+.navbar {
+    height: 10%;
+    width: 100%;
+    background-color: #333333;
+    border-bottom: 3px solid #0076a6;
+}
+
+.logo{
+    height: 100%;
+    width: 60%;
+    margin-left: 1%;
+}
+
+.logo .logo-image{
+    width: 80px;
+    height: 100%;
+    background-image: url(../../../../../public/image/logo_small.png);
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.welcome-text {
+    color:white;
+    height: 100%;
+    width: 20%;
+
+}
+
+.logoutbutton-div {
+    width: 20%;
+    height: 100%;
+}
+
+.logout {
+  border: none;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2em;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color:#0076a6;
+  color: white;
+}
+.logout:hover {
+    color:  #00f2f7;
+    background-color: white;
+    border: 1px solid white;
+}
