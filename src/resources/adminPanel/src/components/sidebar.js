@@ -8,10 +8,10 @@ const Sidebar = () => {
             <div className="admin-image"></div>
             <div className="admin-control-buttons flex flex-column">
                 <ul>
-                    <li className='flex align-center justify-center'><NavLink to="/register-employee">Register Employee</NavLink></li>
-                    <li className='flex align-center justify-center'><NavLink to="/search-employee">Search Employee</NavLink></li>
-                    <li className='flex align-center justify-center'><NavLink to="/update-employee">Update Employee Data</NavLink></li>
-                    <li className='flex align-center justify-center'><NavLink to="/delete-employee">Remove Employee</NavLink></li>
+                    <li className='flex align-center justify-center'><NavLink to="/admin/register-employee">Register Employee</NavLink></li>
+                    <li className='flex align-center justify-center'><NavLink to="/admin/search-employee">Search Employee</NavLink></li>
+                    <li className='flex align-center justify-center'><NavLink to="/admin/update-employee">Update Employee Data</NavLink></li>
+                    <li className='flex align-center justify-center'><NavLink to="/admin/delete-employee">Remove Employee</NavLink></li>
                 </ul>
             </div>
         </>

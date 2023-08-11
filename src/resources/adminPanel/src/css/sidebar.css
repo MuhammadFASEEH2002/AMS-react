@@ -26,13 +26,14 @@
 .admin-control-buttons ul li a{
     text-decoration: none;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: 2%;
     justify-content: center;
     color: white;
     height: 100%;
-    width: 90%;
+    width: 100%;
 }
 .active{
-    border-bottom: 1px solid #0076a6;
+    border-top: 2px solid #0076a6;
+    border-bottom: 2px solid #0076a6;;
 }

@@ -3,12 +3,18 @@ import Navbar from '../src/components/navbar';
 import Sidebar from '../src/components/sidebar';
 import '../../../css/reuseable.css'
 import '../src/css/admin.css'
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 
 const EmployeeRegister = () => {
   useEffect(() => {
     document.title = 'ASM | Admin';
   }, []);
+  function RegisterEmployee(){
+    const [firstName,setFirstName]=useState("");
+    const [LastName,setLastName]=useState("");
+    const [email,setEmail]=useState("");
+    const [dob,setDob]=useState("");
+  }
   return (
     <>
       <div className="register-employee-main">
@@ -42,17 +48,44 @@ const EmployeeRegister = () => {
               </div>
               <div className="employee-reg-credentials flex flex-row align-start justify-center">
                 <div className="employee-reg-credentials-div flex flex-row">
-                  <select >
-                    <option>Select Gender</option>
-                    <option>Marvel</option>
-                    <option>DC</option>
+                  <p className='credential-label flex align-center justify-start'>Password</p>
+                  <input className="credential-input" type="password" />
+                </div>
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Confirm Password</p>
+                  <input className="credential-input" type="password" />
+                </div>
+              </div>
+              <div className="employee-reg-credentials flex flex-row align-start justify-center">
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Gender</p>
+                  <select className='credential-input-dropdown'>
+                    <option>Male</option>
+                    <option>Female</option>
                   </select>
                 </div>
                 <div className="employee-reg-credentials-div flex flex-row">
-
+                  <p className='credential-label flex align-center justify-start'>Department</p>
+                  <select className='credential-input-dropdown'>
+                    <option>IT</option>
+                    <option>Finance</option>
+                    <option>Sales and Marketing</option>
+                    <option>Creatives</option>
+                  </select>
                 </div>
               </div>
-
+              <div className="employee-reg-credentials flex flex-row align-start justify-center">
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Employment Type</p>
+                  <select className='credential-input-dropdown'>
+                    <option>Permanant</option>
+                    <option>Temporary</option>
+                  </select>
+                </div>
+              </div>
+              <div className="employee-reg-form-buttons flex align-center justify-center">
+                <button type="submit" className='reg-form-submit-button'>Register</button>
+              </div>
             </form>
           </div>
         </div>

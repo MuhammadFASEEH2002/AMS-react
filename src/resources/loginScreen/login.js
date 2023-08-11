@@ -15,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
     function loginButton() {
         if (username === "admin" && password === "admin") {
-            navigate('/register-employee',{replace:true});
+            navigate('/admin/register-employee',{replace:true});
         } else {
             console.log("invalid details");
         }

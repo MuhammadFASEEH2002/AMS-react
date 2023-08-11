@@ -13,11 +13,11 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Login/>} />
-        <Route path="/register-employee" element={<EmployeeRegister/>} />
-        <Route path="/search-employee" element={<EmployeeRead/>} />
-        <Route path="/update-employee" element={<EmployeeUpdate/>} />
-        <Route path="/delete-employee" element={<EmployeeDelete/>} />
-        <Route path="/user" element={<User/>}/>
+        <Route path="/admin/register-employee" element={<EmployeeRegister/>} />
+        <Route path="/admin/search-employee" element={<EmployeeRead/>} />
+        <Route path="/admin/update-employee" element={<EmployeeUpdate/>} />
+        <Route path="/admin/delete-employee" element={<EmployeeDelete/>} />
+        <Route path="/admin/user" element={<User/>}/>
       </Routes>
     </Router>
   </>
