@@ -2,6 +2,10 @@
     height: 100svh;
     width: 100svw;
     overflow: hidden;
+    background-image: url(../../../../public/image/login-background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%  100%;
 }
 .login-div{
     border: 0.6px solid grey;
@@ -22,6 +26,7 @@
 .right{
     height: 100%;
     width: 50%;
+    background-color: white;
 }
 .credentials {
     width: 70%;
