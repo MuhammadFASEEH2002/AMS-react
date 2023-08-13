@@ -1,0 +1,21 @@
+.search-employee-right{
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+.employee-search-data{
+    width:95% ;
+}
+.employee-search-heading-row,.employee-search-data-row{
+    width: 100%;
+
+}
+.table-heading, .table-row{
+    width: 16.66%;
+    font-size: 1em;
+    border: 0.8px solid grey;
+}
+.table-row{
+    font-weight: 500;
+}

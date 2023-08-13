@@ -19,9 +19,9 @@ const EmployeeRead = () => {
           <div className="register-employee-left-sidebar flex flex-column align-center justify-center">
             <Sidebar />
           </div>
-          <div className="register-employee-right flex flex-column align-center justify-start">
+          
             <SearchEmployee />
-          </div>
+          
         </div>
       </div>
     </>
