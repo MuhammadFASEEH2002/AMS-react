@@ -26,20 +26,20 @@ const SearchEmployee = () => {
             <h3 className="table-heading flex align-center justify-center">Department</h3>
             <h3 className="table-heading flex align-center justify-center">Employment Type</h3>
           </div>
-          <div className="employee-search-data-row flex flex-row align-center justify-center">
+ 
           {employee.map((employee) => {
             return (
-              <>
+              <div className="employee-search-data-row flex flex-row align-center justify-center">
                 <h1 className='table-row flex align-center justify-center'>{employee.firstName + " " + employee.lastName}</h1>
                 <h1 className='table-row flex align-center justify-center'>{employee.email}</h1>
                 <h1 className='table-row flex align-center justify-center'>{employee.dob}</h1>
                 <h1 className='table-row flex align-center justify-center'>{employee.gender}</h1>
                 <h1 className='table-row flex align-center justify-center'>{employee.department}</h1>
                 <h1 className='table-row flex align-center justify-center'>{employee.employmentType}</h1>
-              </>
+              </div>
             );
           })}
-          </div>
+       
 
 
         </div>
