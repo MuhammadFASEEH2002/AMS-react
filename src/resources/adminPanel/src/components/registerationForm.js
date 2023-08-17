@@ -5,7 +5,7 @@ import { db } from '../../../../utils/firebase'
 import '../css/registerationForm.css'
 
 const RegisterationForm = () => {
-  let [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [dob, setDob] = useState("");
@@ -19,10 +19,7 @@ const RegisterationForm = () => {
     await addDoc(usersCollectionRef, { firstName: firstName, lastName: lastName, email: email, dob: dob, password: password, gender: gender, department: department, employmentType: employmentType });
   document.getElementById("name").value="";
   };
-  const makeUser=()=>{
-    console.log(firstName);
-    console.log(lastName);
-  };
+  
   return (
     <>
       <div className="register-employee-right flex flex-column align-center justify-start">
@@ -31,13 +28,13 @@ const RegisterationForm = () => {
           <div className="employee-reg-credentials flex flex-row align-start justify-center">
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>First Name</p>
-              <input className="credential-input" type="text" id='name' onChange={(event) => {
+              <input className="credential-input" type="text" id='name' placeholder='Enter First Name' onChange={(event) => {
                 setFirstName(event.target.value);
               }} />
             </div>
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>Last Name</p>
-              <input className="credential-input" type="text" onChange={(event) => {
+              <input className="credential-input" type="text" placeholder='Enter Last Name' onChange={(event) => {
                 setLastName(event.target.value);
               }} />
             </div>
@@ -45,7 +42,7 @@ const RegisterationForm = () => {
           <div className="employee-reg-credentials flex flex-row align-start justify-center">
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>Email</p>
-              <input className="credential-input" type="email" onChange={(event) => {
+              <input className="credential-input" type="email" placeholder='Enter Email' onChange={(event) => {
                 setEmail(event.target.value);
               }} />
             </div>
@@ -59,13 +56,13 @@ const RegisterationForm = () => {
           <div className="employee-reg-credentials flex flex-row align-start justify-center">
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>Password</p>
-              <input className="credential-input" type="password" onChange={(event) => {
+              <input className="credential-input" type="password" placeholder='Enter Password' onChange={(event) => {
                 setPassword(event.target.value);
               }} />
             </div>
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>Confirm Password</p>
-              <input className="credential-input" type="password" onChange={(event) => {
+              <input className="credential-input" type="password" placeholder='Confirm Password' onChange={(event) => {
                 setConfirmPassword(event.target.value);
               }} />
             </div>

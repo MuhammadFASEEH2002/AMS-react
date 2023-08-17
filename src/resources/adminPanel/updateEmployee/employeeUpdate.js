@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../src/components/navbar'
 import Sidebar from '../src/components/sidebar'
+import Update from '../src/components/update'
 import '../../../css/reuseable.css'
 import '../src/css/admin.css'
 
@@ -13,8 +14,7 @@ const EmployeeUpdate = () => {
         <div className="register-employee-left-sidebar flex flex-column align-center justify-center">
           <Sidebar />
         </div>
-        <div className="register-employee-right flex flex-column align-center justify-start">
-        </div>
+       <Update/>
       </div>
     </div>
   </>
