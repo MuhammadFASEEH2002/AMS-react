@@ -1,4 +1,4 @@
-import { collection, doc, getDocs } from 'firebase/firestore'
+import { collection, doc, getDocs, updateDoc} from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
 import { useEffect, useState } from 'react'
 import React from 'react'
@@ -11,10 +11,8 @@ const Update = () => {
     let [email, setEmail] = useState("");
     let [dob, setDob] = useState("");
     let [password, setPassword] = useState("");
-    let [confirmPassword, setConfirmPassword] = useState("");
-    let [gender, setGender] = useState("Male");
-    let [department, setDepartment] = useState("IT");
     let [employmentType, setEmploymentType] = useState("Permanent");
+    const [employeeID, setEmployeeID] = useState(null);
     let usersCollectionRef = collection(db, "employee");
     let [employee, setEmployee] = useState([]);
     useEffect(() => {
@@ -26,24 +24,29 @@ const Update = () => {
     }, []);
 
     const SearchUser = async () => {
-
-        let searchEmail = document.getElementById("getEmail").value;
-
-        employee.forEach((employee) => {
-            if (searchEmail === employee.email) {
-                document.getElementById("firstname").value = employee.firstName;
-                document.getElementById("lastname").value = employee.lastName;
-                document.getElementById("email").value = employee.email;
-                document.getElementById("date").value = employee.dob;
-                document.getElementById("password").value = employee.password;
-                document.getElementById("employmenttype").value = employee.employmentType;
-            }
-            else {
-           console.log("not found")
-            }
-        })
-
-    }
+        const searchEmail = document.getElementById("getEmail").value;
+      
+        const matchingEmployee = employee.find((employee) => employee.email === searchEmail);
+      
+        if (matchingEmployee) {
+          document.getElementById("firstname").value = matchingEmployee.firstName;
+          document.getElementById("lastname").value = matchingEmployee.lastName;
+          document.getElementById("email").value = matchingEmployee.email;
+          document.getElementById("date").value = matchingEmployee.dob;
+          document.getElementById("password").value = matchingEmployee.password;
+          document.getElementById("employmenttype").value = matchingEmployee.employmentType;
+          setPassword(matchingEmployee.password);
+          setEmploymentType(matchingEmployee.employmentType);
+          setEmployeeID(matchingEmployee.id); 
+        } else {
+          console.log("Employee not found");
+        }
+      };
+    const UpdateUser = async () => {
+        // console.log(employeeID);
+        const userDoc = doc(db, "employee", employeeID);
+        await updateDoc(userDoc,{ password: password, employmentType: employmentType });
+      };
     return (
         <>
             <div className="register-employee-right flex flex-column align-center justify-start">
@@ -104,7 +107,7 @@ const Update = () => {
                         </div>
                     </div>
                     <div className="employee-reg-form-buttons flex align-center justify-center">
-                        <button className='reg-form-submit-button'>Register</button>
+                        <button className='reg-form-submit-button' onClick={UpdateUser}>Update</button>
                     </div>
                 </div>
             </div>
