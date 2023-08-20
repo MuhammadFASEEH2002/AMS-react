@@ -3,6 +3,7 @@ import Navbar from '../src/components/navbar'
 import Sidebar from '../src/components/sidebar'
 import '../../../css/reuseable.css'
 import '../src/css/admin.css'
+import Delete from '../src/components/delete'
 
 const EmployeeDelete = () => {
   return (
@@ -13,8 +14,7 @@ const EmployeeDelete = () => {
         <div className="register-employee-left-sidebar flex flex-column align-center justify-center">
           <Sidebar />
         </div>
-        <div className="register-employee-right flex flex-column align-center justify-start">
-        </div>
+        <Delete/>
       </div>
     </div>
   </>

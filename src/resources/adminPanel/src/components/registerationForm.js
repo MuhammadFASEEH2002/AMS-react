@@ -1,10 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore'
+import { useState, useEffect } from 'react';
+import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
 import '../css/registerationForm.css'
 
 const RegisterationForm = () => {
+
+  const name_regex = /^[A-Za-z -]+$/;
+  const email_regex = /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,})+$/;
+  const password_regex = /^.{6,}$/; //regex for password of max 6 character that should have atleast one capital letter,one special character and a number.
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,17 +18,54 @@ const RegisterationForm = () => {
   const [gender, setGender] = useState("Male");
   const [department, setDepartment] = useState("IT");
   const [employmentType, setEmploymentType] = useState("Permanent");
-  const usersCollectionRef = collection(db, "employee");
+  let [employee, setEmployee] = useState([]);
   const CreateUser = async () => {
-    await addDoc(usersCollectionRef, { firstName: firstName, lastName: lastName, email: email, dob: dob, password: password, gender: gender, department: department, employmentType: employmentType });
-  document.getElementById("name").value="";
+    if ((firstName == "") || (lastName == "") || (email == "") || (password == "") || (confirmPassword == "")) {
+      console.log("Some fields are empty");
+     } 
+     else {
+      if ((name_regex.test(firstName)) && (name_regex.test(lastName)) && (email_regex.test(email)) && (password_regex.test(password)) && (password_regex.test(confirmPassword))) {
+        if (password == confirmPassword) {
+          let usersCollectionRef = collection(db, "employee");
+
+          const data = await getDocs(usersCollectionRef);
+          setEmployee(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          const searchEmailValue = document.getElementById("email").value;
+          const matchingEmployee = employee.find((employee) => employee.email === searchEmailValue);
+          if (matchingEmployee) {
+            console.log("Employee already exist");
+          } else {
+            await addDoc(usersCollectionRef, { firstName: firstName, lastName: lastName, email: email, dob: dob, password: password, gender: gender, department: department, employmentType: employmentType });
+          }
+          // document.getElementById("getEmail").value = "";
+          // document.getElementById("firstname").value = "";
+          // document.getElementById("lastname").value = "";
+          // document.getElementById("email").value = "";
+          // document.getElementById("date").value = "";
+          // document.getElementById("password").value = "";
+          // document.getElementById("employmenttype").value = "Permanent";
+          // setSearchEmail("");
+          // setFirstName("");
+          // setLastName("");
+          // setEmail("");
+          // setDob("");
+          // setPassword("");
+          // setEmploymentType("Permanent");
+        } else {
+          console.log("Password doesnot match");
+        }
+      }
+      else {
+        console.log("Values entered are not in the correct format");
+      }
+    }
   };
-  
+
   return (
     <>
       <div className="register-employee-right flex flex-column align-center justify-start">
         <h1 className='register-employee-right-main-heading'>Employee Registeration</h1>
-        <div  className='reg-form flex flex-column align-start justify-center'>
+        <div className='reg-form flex flex-column align-start justify-center'>
           <div className="employee-reg-credentials flex flex-row align-start justify-center">
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>First Name</p>
@@ -42,7 +83,7 @@ const RegisterationForm = () => {
           <div className="employee-reg-credentials flex flex-row align-start justify-center">
             <div className="employee-reg-credentials-div flex flex-row">
               <p className='credential-label flex align-center justify-start'>Email</p>
-              <input className="credential-input" type="email" placeholder='Enter Email' onChange={(event) => {
+              <input className="credential-input" type="email" placeholder='Enter Email' id='email' onChange={(event) => {
                 setEmail(event.target.value);
               }} />
             </div>

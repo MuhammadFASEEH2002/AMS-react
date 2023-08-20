@@ -3,7 +3,7 @@ import { db } from '../../../../utils/firebase'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import '../css/searchEmployee.css'
-const Update = () => {
+const Delete = () => {
     let [searchEmail, setSearchEmail] = useState("");
     let [firstName, setFirstName] = useState("");
     let [lastName, setLastName] = useState("");
@@ -156,4 +156,4 @@ const Update = () => {
     )
 };
 
-export default Update
+export default Delete
