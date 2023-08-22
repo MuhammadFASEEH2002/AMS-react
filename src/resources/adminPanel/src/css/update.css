@@ -1,0 +1,20 @@
+.employee-search-area{
+    width: 40%;
+    justify-content: space-evenly;
+}
+.search-email-input-area{
+    padding: 1%;
+    font-size: 1.2vw;
+}
+.search-email-button{
+    padding: 1% 5%;
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color:#0076a6;
+    border: 0.8px solid #0076a6 ;
+    border-radius: 10px;
+    color: white;
+    margin: 2%;
+    cursor: pointer;
+}
