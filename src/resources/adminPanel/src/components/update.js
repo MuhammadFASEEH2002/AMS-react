@@ -22,8 +22,8 @@ const Update = () => {
             try {
                 const data = await getDocs(usersCollectionRef);
                 setEmployee(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-                var button = document.getElementById('myButton');
-                button.disabled = true;
+                // var button = document.getElementById('myButton');
+                // button.disabled = true;
             } catch (error) {
                 console.error('Error retrieving employee data:', error);
             }
@@ -63,21 +63,7 @@ const Update = () => {
             const email_search_input = document.getElementById("getEmail");
             email_search_input.readOnly = false;
             // Clear input fields and state values
-            document.getElementById("getEmail").value = "";
-            document.getElementById("firstname").value = "";
-            document.getElementById("lastname").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("date").value = "";
-            document.getElementById("password").value = "";
-            document.getElementById("employmenttype").value = "Permanent";
-            setSearchEmail("");
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setDob("");
-            setPassword("");
-            setEmploymentType("Permanent");
-            setIsButtonDisabled(true);
+            ClearData();
         } catch (error) {
             console.error('Error updating employee:', error);
         }

@@ -1,8 +1,10 @@
-import { collection, doc, getDocs, updateDoc } from 'firebase/firestore'
+import { collection, doc, getDocs, deleteDoc } from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import '../css/searchEmployee.css'
+import '../css/update.css'
+import '../css/registerationForm.css'
 const Delete = () => {
     let [searchEmail, setSearchEmail] = useState("");
     let [firstName, setFirstName] = useState("");
@@ -12,6 +14,7 @@ const Delete = () => {
     let [password, setPassword] = useState("");
     let [employmentType, setEmploymentType] = useState("Permanent");
     const [employeeID, setEmployeeID] = useState(null);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     let usersCollectionRef = collection(db, "employee");
     let [employee, setEmployee] = useState([]);
     useEffect(() => {
@@ -39,6 +42,9 @@ const Delete = () => {
                 setPassword(matchingEmployee.password);
                 setEmploymentType(matchingEmployee.employmentType);
                 setEmployeeID(matchingEmployee.id);
+                const email_search_input = document.getElementById("getEmail");
+                email_search_input.readOnly = true;
+                setIsButtonDisabled(false);
             } else {
                 console.log("Employee not found");
             }
@@ -46,32 +52,22 @@ const Delete = () => {
             console.error('Error searching for employee:', error);
         }
     };
-    const UpdateUser = async () => {
+    const DeleteUser = async () => {
         try {
             const userDoc = doc(db, "employee", employeeID);
-            await updateDoc(userDoc, { password: password, employmentType: employmentType });
-
+            await deleteDoc(userDoc);
+            const email_search_input = document.getElementById("getEmail");
+            email_search_input.readOnly = false;
             // Clear input fields and state values
-            document.getElementById("getEmail").value = "";
-            document.getElementById("firstname").value = "";
-            document.getElementById("lastname").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("date").value = "";
-            document.getElementById("password").value = "";
-            document.getElementById("employmenttype").value = "Permanent";
-            setSearchEmail("");
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setDob("");
-            setPassword("");
-            setEmploymentType("Permanent");
+            ClearData();
         } catch (error) {
             console.error('Error updating employee:', error);
         }
     };
     const ClearData = () => {
         // Clear input fields and state values
+        const email_search_input = document.getElementById("getEmail");
+        email_search_input.readOnly = false;
         document.getElementById("getEmail").value = "";
         document.getElementById("firstname").value = "";
         document.getElementById("lastname").value = "";
@@ -86,16 +82,17 @@ const Delete = () => {
         setDob("");
         setPassword("");
         setEmploymentType("Permanent");
+        setIsButtonDisabled(true);
     };
     return (
         <>
             <div className="register-employee-right flex flex-column align-center justify-start">
                 <h1 className='register-employee-right-main-heading'>Employee Registeration</h1>
                 <div className="employee-search-area flex flex-row align-center justify-center">
-                    <input id='getEmail' type="email" placeholder='Enter Employee Email' onChange={(event) => {
+                    <input id='getEmail' className='search-email-input-area' type="email" placeholder='Enter Employee Email' onChange={(event) => {
                         setSearchEmail(event.target.value);
                     }} />
-                    <button onClick={SearchUser}>Search</button>
+                    <button onClick={SearchUser} className='search-email-button'>Search</button>
                 </div>
 
                 <div className='reg-form flex flex-column align-start justify-center'>
@@ -134,8 +131,6 @@ const Delete = () => {
                                 setPassword(event.target.value);
                             }} />
                         </div>
-                    </div>
-                    <div className="employee-reg-credentials flex flex-row align-start justify-center">
                         <div className="employee-reg-credentials-div flex flex-row">
                             <p className='credential-label flex align-center justify-start'>Employment Type</p>
                             <select className='credential-input-dropdown' id='employmenttype' onChange={(event) => {
@@ -147,7 +142,7 @@ const Delete = () => {
                         </div>
                     </div>
                     <div className="employee-reg-form-buttons flex align-center justify-center">
-                        <button className='reg-form-submit-button' onClick={UpdateUser}>Update</button>
+                        <button className='reg-form-submit-button' id='employee_update_button' onClick={DeleteUser} disabled={isButtonDisabled}>Delete</button>
                         <button className='reg-form-submit-button' onClick={ClearData}>Clear</button>
                     </div>
                 </div>
