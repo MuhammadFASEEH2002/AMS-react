@@ -2,7 +2,7 @@
     height: 100svh;
     width: 100svw;
     overflow: hidden;
-    background-image: url(../../../../public/image/login-background.png);
+    background-image: url(../../public/image/login-background.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%  100%;
@@ -16,7 +16,7 @@
 .left{
     height: 100%;
     width: 50%;
-    background-image: url(../../../../public/image/Office.gif);
+    background-image: url(../../public/image/Office.gif);
     background-position: center;
     background-size: 100% 100%;
     border-top-left-radius: 10px;

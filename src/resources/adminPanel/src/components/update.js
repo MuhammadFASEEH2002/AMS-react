@@ -2,9 +2,9 @@ import { collection, doc, getDocs, updateDoc } from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
 import { useEffect, useState } from 'react'
 import React from 'react'
-import '../css/searchEmployee.css'
-import '../css/update.css'
-import '../css/registerationForm.css'
+import '../../../../css/searchEmployee.css'
+import '../../../../css/update.css'
+import '../../../../css/registerationForm.css'
 const Update = () => {
     let [searchEmail, setSearchEmail] = useState("");
     let [firstName, setFirstName] = useState("");

@@ -2,7 +2,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
 import { useEffect, useState } from 'react'
 import React from 'react'
-import '../css/searchEmployee.css'
+import '../../../../css/searchEmployee.css'
 const SearchEmployee = () => {
   const [employee, setEmployee] = useState([]);
   const usersCollectionRef = collection(db, "employee");

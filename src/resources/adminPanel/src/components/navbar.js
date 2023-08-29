@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import '../../../../css/reuseable.css'
-import '../css/navbar.css'
+import '../../../../css/navbar.css'
 
 const Navbar = () => {
     const navigate = useNavigate();

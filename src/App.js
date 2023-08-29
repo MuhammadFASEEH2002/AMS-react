@@ -4,7 +4,7 @@ import EmployeeRegister from './resources/adminPanel/registerEmployee/employeeRe
 import EmployeeRead from './resources/adminPanel/readEmployee/employeeRead'
 import EmployeeUpdate from './resources/adminPanel/updateEmployee/employeeUpdate'
 import EmployeeDelete from './resources/adminPanel/deleteEmployee/employeeDelete'
-import User from './resources/userPanel/user.js'
+import UserInfo from './resources/userPanel/UserInfo/UserInfo'
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/admin/search-employee" element={<EmployeeRead/>} />
         <Route path="/admin/update-employee" element={<EmployeeUpdate/>} />
         <Route path="/admin/delete-employee" element={<EmployeeDelete/>} />
-        <Route path="/admin/user" element={<User/>}/>
+        <Route path="/user/" element={<UserInfo/>}/>
       </Routes>
     </Router>
   </>

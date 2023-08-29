@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../src/components/navbar'
 import Sidebar from '../src/components/sidebar'
 import '../../../css/reuseable.css'
-import '../src/css/admin.css'
+import '../../../css/admin.css'
 import Delete from '../src/components/delete'
 
 const EmployeeDelete = () => {

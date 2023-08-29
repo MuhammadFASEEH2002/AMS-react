@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from '../../../../utils/firebase'
-import '../css/registerationForm.css'
+import '../../../../css/registerationForm.css'
 
 const RegisterationForm = () => {
 

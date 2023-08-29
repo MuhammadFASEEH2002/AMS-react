@@ -14,7 +14,7 @@
 .logo .logo-image{
     width: 80px;
     height: 100%;
-    background-image: url(../../../../../public/image/logo_small.png);
+    background-image: url(../../public/image/logo_small.png);
     background-position: center;
     background-size: 100% 100%;
 }

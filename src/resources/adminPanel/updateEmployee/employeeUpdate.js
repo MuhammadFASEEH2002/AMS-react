@@ -4,7 +4,7 @@ import Navbar from '../src/components/navbar'
 import Sidebar from '../src/components/sidebar'
 import Update from '../src/components/update'
 import '../../../css/reuseable.css'
-import '../src/css/admin.css'
+import '../../../../src/css/admin.css'
 
 const EmployeeUpdate = () => {
   useEffect(() => {
